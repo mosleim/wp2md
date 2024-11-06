@@ -145,7 +145,7 @@ export function getPostContent(post: Post, turndownService: turndown) :string{
 // Fungsi untuk menghapus semua tag template Divi
 function removeDiviTags(content: string): string {
     // Regex untuk mencocokkan tag Divi seperti [et_pb_section], [et_pb_row], [et_pb_column], [et_pb_text]
-	const diviTagRegex =  /\[\/?et_pb_(section|row|column|text)[^\]]*]/g;
+	const diviTagRegex =  /\[\/?et_pb_(section|row|column|text|image)[^\]]*]/g;
 
     // Ganti semua tag yang cocok dengan string kosong
     return content.replace(diviTagRegex, "");
