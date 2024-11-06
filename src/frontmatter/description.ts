@@ -5,7 +5,7 @@ import { Post } from "../types";
 
 // if description is empty, try find meta desc from yoast
 export const description = (post: Post):string => {
-    if (post.data.description){
+    if (post.data.description[0]){
         return post.data.description[0];
     }
     if (!post.data.postmeta) {
