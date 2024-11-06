@@ -150,17 +150,3 @@ function removeDiviTags(content: string): string {
     // Ganti semua tag yang cocok dengan string kosong
     return content.replace(diviTagRegex, "");
 }
-
-// Contoh penggunaan
-const originalContent = `
-    [et_pb_section fb_built="1" _builder_version="4.19.2" hover_enabled="0" global_colors_info="{}" module_class="molti-article" sticky_enabled="0"]
-        [et_pb_row _builder_version="4.16" background_size="initial" background_position="top_left" background_repeat="repeat" global_colors_info="{}"]
-            [et_pb_column type="4_4" _builder_version="4.16" custom_padding="|||" global_colors_info="{}" custom_padding__hover="|||"]
-                [et_pb_text _builder_version="4.16" background_size="initial" background_position="top_left" background_repeat="repeat" global_colors_info="{}"]Hello World![/et_pb_text]
-            [/et_pb_column]
-        [/et_pb_row]
-    [/et_pb_section]
-`;
-
-const cleanedContent = removeDiviTags(originalContent);
-console.log(cleanedContent);
