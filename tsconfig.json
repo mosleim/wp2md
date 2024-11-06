@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "strict": true,
+        "esModuleInterop": true,
+        "target": "ES2016",
+        "moduleResolution":"node",
+        "allowJs": true,
+        "paths": {
+          "@frontmatter/*": ["./src/frontmatter/*"],
+        },
+      },
+      "include": ["src/**/*"]
+}
