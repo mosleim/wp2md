@@ -6,6 +6,7 @@ import { getPostContent, initTurndownService } from './translator';
 import { dateOfItem, getFilenameFromUrl } from './utils';
 import { frontmatter_fields } from './settings';
 import * as frontmatter from './frontmatter';
+import { DateTime } from 'luxon';
 
 export async function parseFilePromise():Promise<Post[]> {
 	console.log('\nParsing...');
@@ -181,7 +182,7 @@ function mergeImagesIntoPosts(images: PostImage[], posts: Post[]) {
 
 function populateFrontmatter(posts: Post[]) {
 	// Membuat `Record` dari semua fungsi yang diekspor
-	const frontmatterGetters: Record<string, (post:Post)=>string|string[] > = {};
+	const frontmatterGetters: Record<string, (post:Post)=>string|string[]|DateTime > = {};
 
 	// Memasukkan semua fungsi ke dalam `functionsRecord`
 	for (const key of Object.keys(frontmatter) as Array<keyof typeof frontmatter>) {
@@ -191,7 +192,7 @@ function populateFrontmatter(posts: Post[]) {
 	}
 
 	posts.forEach(post => {
-		const frontmatter:Record<string, string|string[]> = {};
+		const frontmatter:Record<string, string|string[]|DateTime> = {};
 		frontmatter_fields.forEach(field => {
 			const [key, alias] = field.split(':');
 			let frontmatterGetter = frontmatterGetters[key];

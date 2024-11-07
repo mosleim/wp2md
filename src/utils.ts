@@ -66,7 +66,10 @@ export function getPostPath(post: Post,  isImage: boolean=false, asAssets =false
 }
 
 export const dateOfItem = (item:Item)=>{
+	
 	const dateTime = DateTime.fromRFC2822(item.pubDate[0], { zone: settings.custom_date_timezone });
+	console.log(dateTime.toISODate());
+
 	if (settings.custom_date_formatting) {
 		return dateTime.toFormat(settings.custom_date_formatting);
 	} else if (settings.include_time_with_date) {

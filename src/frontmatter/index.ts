@@ -1,6 +1,6 @@
 export * from './author'
 export * from './cornerstone'
-export * from './date'
+export * from './publishDate'
 export * from './example'
 export * from './id'
 export * from './reading_time'

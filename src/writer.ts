@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import http from 'http';
 import https from 'https';
-import luxon from 'luxon';
+import luxon, { DateTime } from 'luxon';
 import path, { dirname } from 'path';
 
 import * as settings from './settings';
@@ -96,7 +96,10 @@ async function loadMarkdownFilePromise(post: Post) {
 				// array of one or more strings
 				outputValue = value.reduce((list, item) => `${list}\n  - "${item}"`, '');
 			}
-		} else {
+		}else if(value instanceof DateTime){
+			outputValue = value.toISO()
+		} 
+		else {
 			// single string value
 			const escapedValue = (value || '').replace(/"/g, '\\"');
 			if (escapedValue.length > 0) {

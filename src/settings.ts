@@ -4,7 +4,7 @@
 // frontmatter, but renamed to 'created'.
 export const frontmatter_fields = [
 	'title',
-	'date',
+	'publishDate',
 	'categories',
 	'tags',
 	'coverImage',

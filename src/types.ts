@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 
 export const config =  {
 	wizard: true,
@@ -28,7 +29,7 @@ export type Post ={
     };
     content?: string;
     coverImage?: string, // possibly set later in mergeImagesIntoPosts()
-    frontmatter:Record<string, string|string[]>;
+    frontmatter:Record<string, string|string[]|DateTime>;
 }
 
 export type PostImage = {
